@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AppCompilerAI</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="sidebar" aria-label="Compiler controls">
+        <header class="brand">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div>
+            <h1>AppCompilerAI</h1>
+            <p>Production-style AI App Compiler</p>
+          </div>
+        </header>
+
+        <section class="control-section">
+          <div class="section-heading">
+            <span>Quality Mode</span>
+            <strong id="modeLabel">Balanced</strong>
+          </div>
+          <div class="mode-switch" role="group" aria-label="Compiler mode">
+            <button class="mode-option" type="button" data-mode="fast">Fast</button>
+            <button class="mode-option active" type="button" data-mode="balanced">Balanced</button>
+            <button class="mode-option" type="button" data-mode="strict">Strict</button>
+          </div>
+        </section>
+
+        <section class="control-section">
+          <label class="field-label" for="prompt">Product Prompt</label>
+          <textarea id="prompt" spellcheck="true">Build a CRM with login, contacts, companies, deals, dashboard, role-based access, analytics, and premium plan with payments. Admins can see analytics.</textarea>
+          <div class="primary-grid">
+            <button id="compileBtn" class="primary-action" type="button">Compile</button>
+            <button id="repairBtn" type="button">Repair Demo</button>
+          </div>
+        </section>
+
+        <section class="control-section">
+          <div class="section-heading">
+            <span>Sample Marketplace</span>
+            <strong>10</strong>
+          </div>
+          <div id="sampleGrid" class="sample-grid" aria-label="Sample prompts"></div>
+        </section>
+
+        <section class="control-section">
+          <div class="section-heading">
+            <span>Compiler Actions</span>
+            <strong>Proof</strong>
+          </div>
+          <div class="action-grid">
+            <button id="determinismBtn" type="button">Determinism</button>
+            <button id="evaluateBtn" type="button">Run Evaluation</button>
+            <button id="copyJsonBtn" type="button">Copy JSON</button>
+            <button id="exportBtn" type="button">Export JSON</button>
+            <button id="runtimeExportBtn" type="button">Runtime Proof</button>
+            <button id="evaluationExportBtn" type="button">Evaluation Report</button>
+            <button id="bundleBtn" class="wide" type="button">Bundle ZIP</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="workspace" aria-live="polite">
+        <header class="statusbar">
+          <div class="run-title">
+            <p>Compiler Run</p>
+            <h2 id="runTitle">Waiting for compile</h2>
+          </div>
+          <button id="statusPill" class="status-pill" type="button">Idle</button>
+          <article class="metric-card">
+            <span>Score</span>
+            <strong id="metricScore">0</strong>
+          </article>
+          <article class="metric-card">
+            <span>Latency</span>
+            <strong id="metricLatency">0 ms</strong>
+          </article>
+          <article class="metric-card">
+            <span>Repairs</span>
+            <strong id="metricRepairs">0</strong>
+          </article>
+          <article class="metric-card">
+            <span>Runtime</span>
+            <strong id="metricRuntime">-</strong>
+          </article>
+          <article class="metric-card">
+            <span>Smoke</span>
+            <strong id="metricSmoke">0/0</strong>
+          </article>
+        </header>
+
+        <nav class="tabs" aria-label="Compiler result tabs">
+          <button class="tab active" type="button" data-tab="summary">Summary</button>
+          <button class="tab" type="button" data-tab="intent">Intent</button>
+          <button class="tab" type="button" data-tab="architecture">Architecture</button>
+          <button class="tab" type="button" data-tab="contract">JSON Contract</button>
+          <button class="tab" type="button" data-tab="validation">Validation</button>
+          <button class="tab" type="button" data-tab="repairs">Repair Log</button>
+          <button class="tab" type="button" data-tab="runtime">Runtime</button>
+          <button class="tab" type="button" data-tab="evaluation">Evaluation</button>
+          <button class="tab" type="button" data-tab="cost">Cost/Quality</button>
+        </nav>
+
+        <section id="summary" class="panel active">
+          <div id="readinessView" class="readiness-grid"></div>
+          <div class="two-column">
+            <article class="panel-card">
+              <div class="card-heading"><h3>Compiler Timeline</h3><span id="stageCount">0 stages</span></div>
+              <div id="stageTrace" class="timeline"></div>
+            </article>
+            <article class="panel-card">
+              <div class="card-heading"><h3>Generated Surface</h3><span>UI/API/DB</span></div>
+              <div id="surfaceView" class="surface-grid"></div>
+            </article>
+          </div>
+          <article class="panel-card">
+            <div class="card-heading"><h3>Submission Readiness</h3><span>reviewer proof</span></div>
+            <div id="submissionView" class="submission-grid"></div>
+          </article>
+        </section>
+
+        <section id="intent" class="panel">
+          <div class="two-column">
+            <article class="panel-card">
+              <div class="card-heading"><h3>Detected Intent</h3><span>normalized IR</span></div>
+              <div id="intentView" class="tag-grid"></div>
+            </article>
+            <article class="panel-card">
+              <div class="card-heading"><h3>Assumptions + Clarifications</h3><span>ambiguity handling</span></div>
+              <div id="assumptionView" class="list-stack"></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="architecture" class="panel">
+          <div id="architectureView" class="architecture-grid"></div>
+        </section>
+
+        <section id="contract" class="panel">
+          <div class="panel-toolbar">
+            <div>
+              <h3>Strict JSON Contract</h3>
+              <p>Always valid JSON, sorted deterministically for reproducible comparison.</p>
+            </div>
+            <button id="copyJsonBtnSecondary" type="button">Copy</button>
+          </div>
+          <pre id="jsonOutput" class="code-block">{}</pre>
+        </section>
+
+        <section id="validation" class="panel">
+          <div class="panel-card">
+            <div class="card-heading"><h3>Validation Issues</h3><span id="validationStatus">waiting</span></div>
+            <div id="validationView" class="issue-grid"></div>
+          </div>
+        </section>
+
+        <section id="repairs" class="panel">
+          <div class="panel-card">
+            <div class="card-heading"><h3>Targeted Repair Log</h3><span>no blind regeneration</span></div>
+            <div id="repairView" class="repair-table"></div>
+          </div>
+        </section>
+
+        <section id="runtime" class="panel">
+          <div id="runtimeView" class="runtime-grid"></div>
+        </section>
+
+        <section id="evaluation" class="panel">
+          <div id="evaluationView" class="evaluation-grid"></div>
+        </section>
+
+        <section id="cost" class="panel">
+          <div id="costView" class="cost-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.venv/
+dist/
+build/
+coverage/
+appcompilerai-evaluation.json
+generated_apps/
+*.zip

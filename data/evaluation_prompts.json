@@ -1,0 +1,103 @@
+[
+  {
+    "id": "real_01",
+    "category": "real_product",
+    "prompt": "Build a CRM with login, contacts, companies, deals, dashboard, role-based access, analytics, and premium plan with payments. Admins can see analytics."
+  },
+  {
+    "id": "real_02",
+    "category": "real_product",
+    "prompt": "Create a marketplace where vendors list products, buyers place orders, checkout is paid, admins manage disputes, and sellers see sales reports."
+  },
+  {
+    "id": "real_03",
+    "category": "real_product",
+    "prompt": "Build an appointment booking app for a clinic with doctors, patients, calendar slots, reminders, admin analytics, and patient login."
+  },
+  {
+    "id": "real_04",
+    "category": "real_product",
+    "prompt": "Make a learning management system with courses, lessons, students, teachers, quizzes, comments, files, and role permissions."
+  },
+  {
+    "id": "real_05",
+    "category": "real_product",
+    "prompt": "Generate a project management dashboard with projects, tasks, milestones, team members, comments, file upload, and manager approvals."
+  },
+  {
+    "id": "real_06",
+    "category": "real_product",
+    "prompt": "Build a support desk with tickets, agents, customers, priority queues, SLA analytics, notifications, and admin settings."
+  },
+  {
+    "id": "real_07",
+    "category": "real_product",
+    "prompt": "Create inventory software for a warehouse with stock items, suppliers, purchase orders, reorder alerts, reports, and manager roles."
+  },
+  {
+    "id": "real_08",
+    "category": "real_product",
+    "prompt": "Build an invoice and expense tracker with clients, payments, recurring billing, reports, search, and role-based approvals."
+  },
+  {
+    "id": "real_09",
+    "category": "real_product",
+    "prompt": "Create an HR portal for employees with leave requests, payroll documents, manager approvals, audit history, and admin analytics."
+  },
+  {
+    "id": "real_10",
+    "category": "real_product",
+    "prompt": "Build a SaaS analytics tool with dashboards, reports, workspaces, premium subscriptions, team roles, and customer billing."
+  },
+  {
+    "id": "edge_01",
+    "category": "edge_case",
+    "prompt": "Build an app."
+  },
+  {
+    "id": "edge_02",
+    "category": "edge_case",
+    "prompt": "Make a public app with anonymous only access but admins need role-based dashboard controls."
+  },
+  {
+    "id": "edge_03",
+    "category": "edge_case",
+    "prompt": "Create a completely free product with premium subscriptions and paid checkout."
+  },
+  {
+    "id": "edge_04",
+    "category": "edge_case",
+    "prompt": "Build a CRM without a database but save contacts, deals, reports, and users."
+  },
+  {
+    "id": "edge_05",
+    "category": "edge_case",
+    "prompt": "I need something like a dashboard for stuff, maybe with users."
+  },
+  {
+    "id": "edge_06",
+    "category": "edge_case",
+    "prompt": "Create a booking app with no login, premium plans, admin analytics, and customer payments."
+  },
+  {
+    "id": "edge_07",
+    "category": "edge_case",
+    "prompt": "Build a tool for files, comments, notifications, and search but I don't know the roles yet."
+  },
+  {
+    "id": "edge_08",
+    "category": "edge_case",
+    "prompt": "Make a healthcare app with doctors and patients, but hide all data while still showing analytics."
+  },
+  {
+    "id": "edge_09",
+    "category": "edge_case",
+    "prompt": "Generate ecommerce with products and orders, then change it to marketplace with vendors, buyers, commissions, and disputes."
+  },
+  {
+    "id": "edge_10",
+    "category": "edge_case",
+    "prompt": "Build support software that is real-time, offline-first, searchable, has tickets, agents, and no manual admin work."
+  }
+]
+

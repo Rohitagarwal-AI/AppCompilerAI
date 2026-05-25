@@ -1,5 +1,7 @@
 # AppCompilerAI
 
+Live demo: https://appcompilerai.onrender.com
+
 AppCompilerAI is a production-style **AI App Compiler** demo. It converts a natural-language product prompt into a strict executable app configuration, validates cross-layer consistency, repairs local failures, simulates runtime execution, and evaluates the compiler on real and edge-case prompts.
 
 This is not a generic chatbot wrapper. The project demonstrates deterministic systems thinking: stage contracts, validation gates, targeted repair, runtime proof, and measurable reliability.
